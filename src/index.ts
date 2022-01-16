@@ -3,10 +3,9 @@ import express, { Application } from "express";
 import routes from "./routes";
 import { createConnection } from "typeorm";
 import dbConfig from "../database";
-import * as cookieParser from "cookie-parser"
+const cookieParser = require("cookie-parser");
 
 const PORT = process.env.PORT || 3000;
-
 const app: Application = express();
 
 app.use(express.json());
