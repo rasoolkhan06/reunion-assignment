@@ -1,11 +1,7 @@
-interface PingResponse {
-    message: string;
-}
-
-export default class UserController {
-    async getMessage(): Promise<PingResponse> {
-        return {
-            message: "pong",
-        };
+class UserController {
+    static getMessage() {
+        return "pong";
     }
 }
+
+export default UserController;

@@ -1,12 +1,8 @@
 import express from "express";
-import UserController from "../controllers/user.controller";
+import user from "./user";
 
-const router = express.Router();
+const routes = express.Router();
 
-router.get("/ping", async (_req, res) => {
-  const controller = new UserController();
-  const response = await controller.getMessage();
-  return res.send(response);
-});
+routes.use("/api/user", user);
 
-export default router;
+export default routes;

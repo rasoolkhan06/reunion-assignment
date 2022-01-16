@@ -1,8 +1,9 @@
 import "dotenv";
 import express, { Application } from "express";
-import Router from "./routes";
+import routes from "./routes";
 import { createConnection } from "typeorm";
 import dbConfig from "../database";
+import * as cookieParser from "cookie-parser"
 
 const PORT = process.env.PORT || 3000;
 
@@ -12,7 +13,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-app.use(Router);
+app.use(cookieParser());
+
+app.use("/", routes);
 
 createConnection(dbConfig)
   .then((_connection) => {
