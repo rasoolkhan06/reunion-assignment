@@ -2,7 +2,7 @@ import "dotenv";
 import express, { Application } from "express";
 import Router from "./routes";
 import { createConnection } from "typeorm";
-import dbConfig from "./config/database";
+import dbConfig from "../database";
 
 const PORT = process.env.PORT || 3000;
 
@@ -24,4 +24,3 @@ createConnection(dbConfig)
     console.log("Unable to connect to db", err);
     process.exit(1);
   });
-

@@ -1,10 +1,10 @@
-import { 
+import {
     Entity,
-    PrimaryGeneratedColumn, 
-    Column, 
-    Index, 
-    CreateDateColumn, 
-    UpdateDateColumn 
+    PrimaryGeneratedColumn,
+    Column,
+    Index,
+    CreateDateColumn,
+    UpdateDateColumn
 } from 'typeorm';
 import * as bcrypt from 'bcryptjs';
 

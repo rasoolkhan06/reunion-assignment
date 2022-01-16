@@ -1,4 +1,8 @@
+var path = require("path");
+require("dotenv").config();
 import { ConnectionOptions } from "typeorm";
+
+const isCompiled = path.extname(__filename).includes("js");
 
 const config: ConnectionOptions = {
   type: "postgres",
@@ -10,7 +14,12 @@ const config: ConnectionOptions = {
   ssl: {
     rejectUnauthorized: false
   },
-  entities: [],
+  entities: [__dirname + `/src/entity/**/*.${isCompiled ? "js" : "ts"}`],
+  migrations: [__dirname + `/src/migration/**/*.${isCompiled ? "js" : "ts"}`],
+  cli: {
+    entitiesDir: "src/entity",
+    migrationsDir: "src/migration",
+  },
   synchronize: true,
 };
 
