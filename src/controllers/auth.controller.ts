@@ -29,7 +29,7 @@ class AuthController {
 
             const token = jwt.sign(
                 { email: email },
-                process.env.TOKEN_KEY,
+                process.env.JWT_SECRET,
                 {
                   expiresIn: "10d",
                 }
