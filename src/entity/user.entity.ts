@@ -29,11 +29,13 @@ export class User {
     @UpdateDateColumn({ nullable: true })
     updatedAt: Date;
 
-    hashPassword() {
-        this.hash = bcrypt.hashSync(this.hash, 12);
-    }
-
     checkIfUnencryptedPasswordIsValid(unencryptedPassword: string) {
         return bcrypt.compareSync(unencryptedPassword, this.hash);
+    }
+
+    constructor(email: string, password: string, name: string) {
+        this.email = email;
+        this.hash = password;
+        this.name = name;
     }
 }
